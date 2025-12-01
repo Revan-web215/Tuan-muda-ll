@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinix Indonesia – Smartphone Canggih Harga Terjangkau</title>
+
+    <style>
+    .feature-card {
+    background: #ffffff;
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    /* RAPI & JELAS */
+    color: #111 !important;
+    font-size: 16px;
+    font-weight: 600;
+
+    /* SHADOW AGAR TIDAK MENYATU DG BACKGROUND */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+
+    /* HILANGKAN TRANSPARANSI */
+    opacity: 1 !important;
+}
+
+.feature-card span {
+    color: #111 !important;
+}
+        body {
+            margin: 0;
+            font-family: "Poppins", sans-serif;
+            background: #ffffff;
+            color: #111;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* 🌙 DARK MODE OTOMATIS */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #0c0c0c;
+                color: #f1f1f1;
+            }
+
+            header {
+                background: rgba(20,20,20,0.75);
+                color: #fff;
+            }
+
+            nav a { color: #e4e4e4; }
+            nav a:hover { color: #00ff88; }
+
+            .hero-text p { color: #ccc; }
+
+            .hero img {
+                box-shadow: 0 10px 35px rgba(0,255,120,0.25);
+            }
+
+            .phone-box {
+                background: #181818;
+                border: 1px solid #333;
+                color: #eee;
+            }
+
+            .phone-box:hover {
+                background: #222;
+                box-shadow: 0 0 15px rgba(0,255,90,0.25);
+            }
+
+            .testi {
+                background: #1b1b1b;
+                border-left: 5px solid #00ff7b;
+            }
+
+            .revan-box {
+                background: #0cb75c;
+                color: #fff;
+            }
+
+            footer {
+                background: #000;
+                color: #fff;
+            }
+
+            #comment-list div {
+                background: #1a1a1a !important;
+                color: #fff;
+                border-left: 5px solid #ff3b3b !important;
+            }
+
+            input, textarea {
+                background: #1b1b1b !important;
+                color: #fff !important;
+                border: 1px solid #444 !important;
+            }
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 999;
+            transition: 0.3s;
+        }
+
+        header h1 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 22px;
+            color: #1f1f1f;
+        }
+
+        nav a {
+            text-decoration: none;
+            margin-left: 25px;
+            color: #333;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #0cb75c;
+        }
+
+        .hero {
+            margin-top: 110px;
+            padding: 80px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            max-width: 520px;
+        }
+
+        .hero-text h2 {
+            font-size: 48px;
+            margin: 0;
+            font-weight: 800;
+        }
+
+        .hero-text p {
+            margin: 20px 0;
+            font-size: 18px;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .btn {
+            padding: 15px 34px;
+            background: #0cb75c;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .btn:hover { background: #099a4d; }
+
+        .hero img {
+            width: 380px;
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+        }
+
+        section {
+            padding: 80px 40px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h3.section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .phone-box {
+            padding: 22px;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            background: white;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .phone-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* ANIMASI POP SAAT DIKLIK */
+        .phone-box.pop {
+            transform: scale(1.06);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+        }
+
+        .phone-box img {
+            width: 100%;
+            height: 200px;
+            border-radius: 14px;
+            object-fit: cover;
+        }
+
+        .price {
+            margin-top: 10px;
+            font-weight: 700;
+            color: #0cb75c;
+        }
+
+        .testi {
+            background: #f7f7f7;
+            padding: 20px;
+            border-left: 5px solid #0cb75c;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .revan-box {
+            background: #0cb75c;
+            color: white;
+            padding: 40px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .revan-text {
+            max-width: 550px;
+        }
+
+        .revan-text h2 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .revan-text p {
+            font-size: 17px;
+            line-height: 1.5;
+            margin-top: 15px;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 40px;
+            text-align: center;
+            margin-top: 60px;
+        }/* 💧 WATER SPLASH */
+.water-effect {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background: rgba(0, 180, 255, 0.35);
+    border-radius: 50%;
+    transform: scale(0);
+    pointer-events: none;
+    animation: waterSplash 0.45s ease-out forwards;
+}
+@keyframes waterSplash {
+    0% { transform: scale(0); opacity: 0.9; }
+    100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* ⚡ LIGHTNING STRIKE */
+.lightning {
+    position: absolute;
+    width: 4px;
+    height: 40px;
+    background: linear-gradient(to bottom, #ffff00, #ffffff);
+    box-shadow: 0 0 15px #fff, 0 0 20px #ff0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(25deg);
+    opacity: 0;
+    animation: strike 0.25s ease-out forwards;
+}
+@keyframes strike {
+    0% { opacity: 1; height: 0; }
+    50% { opacity: 1; height: 55px; }
+    100% { opacity: 0; height: 0; }
+}
+
+/* 🔥 FIRE BURST */
+.fire-effect {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    background: radial-gradient(circle, rgba(255,200,0,0.9), rgba(255,60,0,0.8), rgba(255,0,0,0.4), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: scale(0);
+    animation: fireBurst 0.55s ease-out forwards;
+}
+@keyframes fireBurst {
+    0% { transform: scale(0.2); opacity: 1; }
+    100% { transform: scale(2.3); opacity: 0; }
+}
+
+/* Agar efek muncul di dalam kotak */
+.phone-box {
+    position: relative;
+    overflow: hidden;
+}/* FIX TEKS HUBUNGI KAMI AGAR JELAS */
+.contact-box-label {
+    color: #111 !important;
+    font-weight: 600;
+    opacity: 1 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    .contact-box-label {
+        color: #ffffff !important;
+        opacity: 0.9 !important;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>INFINIX INDONESIA</h1>
+    <nav>
+        <a href="#produk">Produk</a>
+        <a href="#fitur">Fitur</a>
+        <a href="#revan">Revan</a>
+        <a href="#order">Beli</a>
+    </nav>
+</header>
+
+<!-- HERO SECTION -->
+<div class="hero">
+    <div class="hero-text">
+        <h2>Experience Power & Style</h2>
+        <p>Infinix menghadirkan teknologi modern, desain premium, dan performa maksimal dengan harga terjangkau.</p>
+        <a href="#produk" class="btn">Lihat Produk</a>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?q=80&w=600" alt="Infinix Smartphone">
+</div>
+
+<!-- PRODUK -->
+<section id="produk">
+    <h3 class="section-title">Produk Terbaru</h3>
+
+    <div class="menu-grid">
+
+        <div class="phone-box">
+            <img src="zero.jpg">
+            <h4>Infinix ZERO Flip</h4>
+            <p class="price">Mulai Rp 8.999.999</p>
+        </div>
+
+        <div class="phone-box">
+            <img src="50.jpg">
+            <h4>Infinix NOTE 50 series</h4>
+            <p class="price">Mulai Rp 3.199.999</p>
+        </div>
+
+        <div class="phone-box">
+            <img src="gt.jpg">
+            <h4>Infinix GT 30 Pro</h4>
+            <p class="price">Mulai Rp 4.799.000</p>
+        </div>
+    </div>
+</section>
+
+<!-- FITUR -->
+<section id="fitur">
+    <h3 class="section-title">Fitur Unggulan</h3>
+    
+    <div class="feature-card">⚡ Performa kencang dengan chipset gaming.</div>
+<div class="feature-card">📸 Kamera jernih kelas flagship.</div>
+<div class="feature-card">🔋 Baterai super besar 5000–6000mAh.</div>
+<div class="feature-card">💎 Desain elegan dengan material premium.</div>
+</section>
+
+<!-- REVAN BRAND AMBASSADOR -->
+<section id="revan">
+    <h3 class="section-title">Revan – Brand Ambassador</h3>
+
+    <div class="revan-box">
+        <div class="revan-text">
+            <h2>Revan – Tech Reviewer & Brand Ambassador Infinix</h2>
+            <p>
+                Revan adalah content creator teknologi yang dikenal dengan review jujur,
+                detail, dan profesional. Kini Revan bekerja sama dengan Infinix untuk
+                menghadirkan konten menarik seputar smartphone terbaru, fitur unggulan,
+                hingga tips memaksimalkan performa HP Infinix.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- BELI -->
+<section id="order">
+    <h3 class="section-title">Beli Sekarang</h3>
+    <p style="text-align:center;">Klik untuk membeli via WhatsApp.</p>
+    <center>
+        <a href="https://api.whatsapp.com/send?phone= 6283144179366" class="btn">Pesan via WhatsApp</a>
+    </center>
+</section>
+
+<!-- KOMENTAR -->
+<section id="komentar">
+    <h3 class="section-title">Komentar Pengunjung</h3>
+
+    <div id="comment-list" style="max-width: 700px; margin: auto; margin-bottom: 40px;"></div>
+
+    <div style="max-width: 700px; margin: auto;">
+        <input id="nama" type="text" placeholder="Nama Anda" 
+            style="width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #ccc;">
+
+        <textarea id="pesan" placeholder="Tulis komentar..." 
+            style="width: 100%; padding: 12px; height: 120px; border-radius: 8px; border: 1px solid #ccc;"></textarea>
+
+        <button onclick="kirimKomentar()" 
+            style="margin-top: 12px; width: 100%; padding: 14px; background:#d10000; color:white; border:none; border-radius:10px; font-weight:600;">
+            Kirim Komentar
+        </button>
+    </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+    <p style="font-size:18px; margin:10px 0;">
+    📞 <strong class="contact-box-label">Nomor Telepon:</strong> <br>
+    <span style="color:#0cb75c; font-weight:600;">0831-4417-9366</span>
+</p>
+
+<p style="font-size:18px; margin:10px 0;">
+    ✉️ <strong class="contact-box-label">Email:</strong> <br>
+    <span style="color:#0cb75c; font-weight:600;">mrevanfarisy4@gmail.com</span>
+</p>
+
+<p style="font-size:18px; margin:10px 0;">
+    📍 <strong class="contact-box-label">Alamat:</strong> <br>
+    <span style="color:#0cb75c; font-weight:600;">Indonesia</span>
+</p>
+
+    </div>
+</section>
+
+<footer>
+    © 2025 Infinix Indonesia – Power the Future
+</footer>
+
+<script>
+    function loadKomentar() {
+        const komentar = JSON.parse(localStorage.getItem("komentarInfinix")) || [];
+        const list = document.getElementById("comment-list");
+
+        list.innerHTML = komentar.map(k => `
+            <div style="background:#f9f9f9; padding:15px; border-left:5px solid #d10000; 
+                        border-radius:10px; margin-bottom:15px;">
+                <strong>${k.nama}</strong><br>
+                <small style="color:#777;">${k.waktu}</small>
+                <p style="margin-top:8px;">${k.pesan}</p>
+            </div>
+        `).join("");
+    }
+
+    function kirimKomentar() {
+        const nama = document.getElementById("nama").value;
+        const pesan = document.getElementById("pesan").value;
+
+        if (!nama || !pesan) {
+            alert("Nama dan komentar tidak boleh kosong!");
+            return;
+        }
+
+        const komentar = JSON.parse(localStorage.getItem("komentarInfinix")) || [];
+
+        const waktu = new Date().toLocaleString("id-ID", {
+            day: "numeric", month: "long", year: "numeric",
+            hour: "2-digit", minute: "2-digit"
+        });
+
+        komentar.push({ nama, pesan, waktu });
+        localStorage.setItem("komentarInfinix", JSON.stringify(komentar));
+
+        document.getElementById("nama").value = "";
+        document.getElementById("pesan").value = "";
+
+        loadKomentar();
+    }
+
+    loadKomentar();
+
+    /* ANIMASI KLIK PRODUK */
+    document.querySelectorAll(".phone-box").forEach(box => {
+        box.addEventListener("click", () => {
+            box.classList.add("pop");
+
+            setTimeout(() => {
+                box.classList.remove("pop");
+            }, 250);
+        });
+    });/* ANIMASI KLIK PRODUK (AIR + PETIR + API + POP) */
+document.querySelectorAll(".phone-box").forEach(box => {
+    box.addEventListener("click", (e) => {
+
+        /* POP */
+        box.classList.add("pop");
+        setTimeout(() => box.classList.remove("pop"), 250);
+
+        /* Hit posisi klik */
+        let rect = box.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+        let y = e.clientY - rect.top;
+
+        /* 💧 AIR */
+        const water = document.createElement("span");
+        water.classList.add("water-effect");
+        water.style.left = `${x - 110}px`;
+        water.style.top = `${y - 110}px`;
+        box.appendChild(water);
+        setTimeout(() => water.remove(), 500);
+
+        /* ⚡ PETIR */
+        const lightning = document.createElement("span");
+        lightning.classList.add("lightning");
+        box.appendChild(lightning);
+        setTimeout(() => lightning.remove(), 300);
+
+        /* 🔥 API */
+        const fire = document.createElement("span");
+        fire.classList.add("fire-effect");
+        fire.style.left = `${x - 65}px`;
+        fire.style.top = `${y - 65}px`;
+        box.appendChild(fire);
+        setTimeout(() => fire.remove(), 550);
+    });
+});
+</script>
+
+</body>
+</html>
